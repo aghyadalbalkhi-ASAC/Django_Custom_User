@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth App</title>
+</head>
+<body>
+
+    <header>
+        <h2> Welcome to  Auth App Using Email</h2>
+    </header>
+    <main>
+
+        {% block raw %}{% if user.is_authenticated %}
+        Hi {{ user.email }}!
+        <p><a href="{% url 'account_logout' %}">Log Out</a></p>
+      {% else %}
+        <p>You are not logged in</p>
+        <a href="{% url 'account_login' %}">Log In</a> |
+        <a href="{% url 'account_signup' %}">Sign Up</a>
+      {% endif %}{% endblock raw %}
+
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>

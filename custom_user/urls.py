@@ -1,4 +1,4 @@
-"""CustomUser URL Configuration
+"""custom_user URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
@@ -14,12 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
-from django.views.generic.base import TemplateView
+from django.urls import path , include
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name='home.html'), name='home'),
     path('admin/', admin.site.urls),
-    path('auth_user/', include('auth_user.urls')),
-    path('auth_user/', include('django.contrib.auth.urls')),
+    path('auth_app/',include('allauth.urls')),
+    path('auth_app/',include('auth_app.urls')),
 ]
